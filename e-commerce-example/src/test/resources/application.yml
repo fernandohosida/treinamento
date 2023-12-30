@@ -1,0 +1,10 @@
+spring:
+  flyway:
+    enabled: true
+    clean-on-validation-error: true # dev only
+    clean-disabled: false # dev only
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: a
+    password: b
+    url: jdbc:h2:mem:test

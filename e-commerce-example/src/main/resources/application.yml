@@ -1,0 +1,10 @@
+spring:
+  flyway:
+    enabled: true
+    clean-on-validation-error: true # dev only
+    clean-disabled: false # dev only
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: myuser
+    password: secret
+    url: jdbc:postgresql://localhost:5432/mydatabase
