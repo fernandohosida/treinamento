@@ -1,0 +1,18 @@
+spring:
+  config.activate.on-profile: h2
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:${random.id}
+    username: a
+    password: b
+  liquibase:
+    liquibase-schema: PUBLIC
+    liquibase-tablespace: DEFAULT
+---
+spring:
+  config.activate.on-profile: mysql
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:mysql:5.7://localhost/produto?TC_TMPFS=/var/lib/mysql:rw&rewriteBatchedStatements=true
+    username: a
+    password: b

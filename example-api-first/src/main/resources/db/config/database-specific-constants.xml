@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <property name="uuidType" value="CHAR(36)"/>
+
+    <property name="dateType" dbms="mysql" value="TIMESTAMP"/>
+    <property name="dateType" dbms="h2" value="DATE"/>
+    <property name="dateType" dbms="oracle" value="DATE"/>
+
+    <property name="dateTimeType" dbms="mssql" value="DATETIME2"/>
+    <property name="dateTimeType" dbms="!mssql" value="DATETIME(6)"/>
+
+    <property name="now" dbms="mysql" value="NOW(6)"/>
+    <property name="now" dbms="h2" value="CURRENT_TIMESTAMP()"/>
+    <property name="now" dbms="oracle" value="SYSTIMESTAMP"/>
+    <property name="now" dbms="mssql" value="CURRENT_TIMESTAMP"/>
+
+    <property name="partitionNumberType" dbms="!h2" value="INT(1)"/>
+    <property name="partitionNumberType" dbms="h2" value="NUMERIC(1)"/>
+
+    <property name="jsonType" dbms="mysql" value="JSON"/>
+    <property name="jsonType" dbms="h2" value="CLOB"/>
+    <property name="jsonType" dbms="oracle" value="CLOB"/>
+    <property name="jsonType" dbms="mssql" value="NVARCHAR(max)"/>
+</databaseChangeLog>

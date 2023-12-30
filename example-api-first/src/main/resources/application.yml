@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: '@project.artifactId@'
+  datasource:
+    hikari:
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+      auto-commit: false
+      pool-name: ${spring.application.name}-pool
+    name: ${spring.application.name}-ds
+  profiles:
+    default: local, mysql
+server:
+  port: 8089
+
+
+

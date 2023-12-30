@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!-- changeSet Author: use your Matera user ID. E.g.: "FAR" -->
+    <!-- changeSet ID: format YYYYMMddHHmmss. E.g.: 10/03/2021 11:45:10s = 20210310114510  -->
+
+    <!-- It's required to explicitly specify the encoding on table creation in MySQL database.
+         Breaking this rule could incur in errors on creating constraints. -->
+
+    <include file="db/config/database-specific-constants.xml"/>
+
+    <changeSet id="20230518104100"
+               author="K2">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="EC_PRODUTO"/>
+            </not>
+        </preConditions>
+        <comment>Creates the mar_accounting_entry table</comment>
+        <createTable tableName="EC_PRODUTO"
+                     remarks="Holds the accounting entries">
+            <column name="ID"
+                    type="${uuidType}"
+                    remarks="Identifies the account entry registry">
+                <constraints primaryKey="true"
+                             nullable="false"
+                             primaryKeyName="EC_PRODUTO_PK"/>
+            </column>
+            <column name="DESCRICAO"
+                    type="varchar(200)"
+                    remarks="Identifies the source system id">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TIPO"
+                    type="varchar(50)"
+                    remarks="Identifies the source system">
+            </column>
+            <column name="VALOR"
+                    type="NUMBER(19,2)"
+                    remarks="Identifies the entry date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_AT"
+                    type="${dateTimeType}"
+                    remarks="Identifies time of the creation of an entry">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <modifySql dbms="mysql">
+            <append value=" ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_general_ci"/>
+        </modifySql>
+    </changeSet>
+</databaseChangeLog>
