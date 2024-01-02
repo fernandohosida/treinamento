@@ -6,10 +6,12 @@ import com.k2.example.kafka.eventPublisher.config.KafkaConfigProps;
 import com.k2.example.kafka.eventPublisher.domain.Debt;
 import com.k2.example.kafka.eventPublisher.exception.DebtPublishException;
 import com.k2.example.kafka.eventPublisher.service.EventPublisherService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
+@Profile("production")
 public class KakfaEventPublisherService implements EventPublisherService {
 
     private final ObjectMapper objectMapper;
