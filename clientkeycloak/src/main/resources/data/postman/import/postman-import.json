@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "24ed6c13-d2ca-4f01-9047-e3c3e9d6acad",
+		"_postman_id": "93712e1b-937e-4707-be90-687759231e36",
 		"name": "keycloak-test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "695064"
@@ -16,7 +16,7 @@
 					"urlencoded": [
 						{
 							"key": "client_id",
-							"value": "app_youtube",
+							"value": "security-resource",
 							"type": "text"
 						},
 						{
@@ -26,18 +26,18 @@
 						},
 						{
 							"key": "username",
-							"value": "user_youtube",
+							"value": "user-admin",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "user",
+							"value": "test",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/realms/youtube/protocol/openid-connect/token",
+					"raw": "http://localhost:8080/realms/security-realm/protocol/openid-connect/token",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -45,7 +45,7 @@
 					"port": "8080",
 					"path": [
 						"realms",
-						"youtube",
+						"security-realm",
 						"protocol",
 						"openid-connect",
 						"token"
@@ -62,7 +62,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "informe token",
+							"value": "informar token",
 							"type": "string"
 						}
 					]
@@ -91,7 +91,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "informe token",
+							"value": "informar token",
 							"type": "string"
 						}
 					]

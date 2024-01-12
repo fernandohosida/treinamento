@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     @GetMapping
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('user')")
     public String list() {
         return "Listando produtos USER";
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('admin')")
     public String create() {
         return "Cadastrando produtos ADMIN";
     }
